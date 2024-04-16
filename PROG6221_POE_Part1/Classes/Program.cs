@@ -43,7 +43,13 @@ namespace PROG6221_POE_Part1.Classes
 
 			//Captures number of steps of the recipe
 			Console.Write("\nEnter the number of steps for the recipe: ");
-			int numOfSteps = Convert.ToInt32(Console.ReadLine());
+			int numOfSteps = 0;
+			s = Console.ReadLine();
+			while (!int.TryParse(s, out numOfSteps))
+			{
+				Console.Write("\nPlease enter a valid number: ");
+				s = Console.ReadLine();
+			}
 			//(Troelsen & Japikse, 2021).
 
 			//Declares an object of Recipe Class
