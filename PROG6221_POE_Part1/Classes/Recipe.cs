@@ -32,16 +32,14 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to display recipe
+		//------------------------------------------------ Display Recipe ------------------------------------------------//
 		public void displayRecipe()
 		{
 			if (numOfSteps == 0)
 			{
-				//Error colour red
 				Console.ForegroundColor = ConsoleColor.Red;
 				Console.WriteLine("\nThere is no recipe to display.\n");
 				Console.ForegroundColor = ConsoleColor.White;
-				//(Troelsen & Japikse, 2021).
 			}
 			else
 			{
@@ -58,7 +56,6 @@ namespace PROG6221_POE_Part1.Classes
 				Console.BackgroundColor = ConsoleColor.Black;
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine();
-				//(Troelsen & Japikse, 2021).
 
 				//Displays the recipe steps
 				Console.ForegroundColor = ConsoleColor.Blue;
@@ -78,7 +75,7 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to upscale ingredient quantity by a factor
+		//------------------------------------------------ Upscale Ingredient Quantity Method ------------------------------------------------//
 		public void upscaleIngredientQuantity(int factor)
 		{
 			for (int i = 0; i < numOfIngredients; i++)
@@ -88,7 +85,7 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to reverts ingredient quantity back to original value
+		//------------------------------------------------ Revert quantity to original data ------------------------------------------------//
 		public void revertIngredientQuantity(int factor)
 		{
 			for (int i = 0; i < numOfIngredients; i++)
@@ -98,7 +95,7 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to capture data of ingredients
+		//------------------------------------------------ Capture Ingredient data ------------------------------------------------//
 		public void captureIngredients(string name, string unitOfMeasurement, int q, int position)
 		{
 			ingredientName[position] = name;
@@ -107,28 +104,28 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to retrieve data of ingredients
+		//------------------------------------------------ Return string of Ingredients data ------------------------------------------------//
 		public string returnIngredient(int position)
 		{
 			return ("o "+ingredientName[position] +": " + quantity[position] +" "+ measurementUnit[position] );
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to record recipe steps
+		//------------------------------------------------ Capture Recipe steps ------------------------------------------------//
 		public void captureStepDescription(string description, int position)
 		{
 			stepDescription[position] = description;
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to retrieve recipe steps
+		//------------------------------------------------ Display Recipe Stpes ------------------------------------------------//
 		public string returnStepDescription(int position)
 		{
 			return ("Step " + (position+1) + ": " + stepDescription[position]);
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to delete recipe
+		//------------------------------------------------ Clear Recipe ------------------------------------------------//
 		public void clearRecipe()
 		{
 			numOfIngredients = 0;
