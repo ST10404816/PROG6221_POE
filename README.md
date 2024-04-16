@@ -16,7 +16,7 @@ This C# program is a simple command-line application designed to collect recipe 
 •	Erase recipe data: Users can clear the current recipe.
 •	Create a new recipe: Previous recipe data is ereased and new data is recorded.
 •	Exit application: Users can terminate the application.
- 
+
 Requirements:
 •	This application requires the .NET framework to run.
 •	Version: .NET Framework 4.8
