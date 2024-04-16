@@ -32,7 +32,13 @@ namespace PROG6221_POE_Part1.Classes
 
 			//Captures number of ingredients
 			Console.Write("\nEnter the number of ingredients: ");
-			int numOfIngredients = Convert.ToInt32(Console.ReadLine());
+			int numOfIngredients = 0;
+			string s = Console.ReadLine();
+			while (!int.TryParse(s, out numOfIngredients))
+			{
+				Console.Write("\nPlease enter a valid number: ");
+				s = Console.ReadLine();
+			}
 			//(Troelsen & Japikse, 2021).
 
 			//Captures number of steps of the recipe
