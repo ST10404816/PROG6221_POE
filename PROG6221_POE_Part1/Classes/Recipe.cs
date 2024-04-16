@@ -48,14 +48,12 @@ namespace PROG6221_POE_Part1.Classes
 				Console.WriteLine("\n***List of Ingredients***\n");
 				Console.ForegroundColor = ConsoleColor.Black;
 				Console.BackgroundColor = ConsoleColor.Yellow;
-				Console.WriteLine();
 				for (int i = 0; i < numOfIngredients; i++)
 				{
 					Console.WriteLine(returnIngredient(i));
 				}
 				Console.BackgroundColor = ConsoleColor.Black;
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.WriteLine();
 
 				//Displays the recipe steps
 				Console.ForegroundColor = ConsoleColor.Blue;
@@ -107,7 +105,7 @@ namespace PROG6221_POE_Part1.Classes
 		//------------------------------------------------ Return string of Ingredients data ------------------------------------------------//
 		public string returnIngredient(int position)
 		{
-			return ("o "+ingredientName[position] +": " + quantity[position] +" "+ measurementUnit[position] );
+			return ("- " + quantity[position] + " " + measurementUnit[position] + " of " + ingredientName[position]);
 		}
 		//(Troelsen & Japikse, 2021).
 
