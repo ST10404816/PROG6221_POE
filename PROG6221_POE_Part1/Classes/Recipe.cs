@@ -37,24 +37,38 @@ namespace PROG6221_POE_Part1.Classes
 		{
 			if (numOfSteps == 0)
 			{
+				//Error colour red
+				Console.ForegroundColor = ConsoleColor.Red;
 				Console.WriteLine("\nThere is no recipe to display.\n");
+				Console.ForegroundColor = ConsoleColor.White;
+				//(Troelsen & Japikse, 2021).
 			}
 			else
 			{
 				//Displays the list of ingredients
+				Console.ForegroundColor = ConsoleColor.DarkYellow;
 				Console.WriteLine("***List of Ingredients***\n");
+				Console.ForegroundColor = ConsoleColor.Black;
+				Console.BackgroundColor = ConsoleColor.Yellow;
 				for (int i = 0; i < numOfIngredients; i++)
 				{
 					Console.WriteLine(returnIngredient(i));
 				}
+				Console.BackgroundColor = ConsoleColor.Black;
+				Console.ForegroundColor = ConsoleColor.White;
 				//(Troelsen & Japikse, 2021).
 
 				//Displays the recipe steps
+				Console.ForegroundColor = ConsoleColor.Blue;
 				Console.WriteLine("***Recipe Steps***\n");
+				Console.ForegroundColor = ConsoleColor.White;
+				Console.BackgroundColor = ConsoleColor.Blue;
 				for (int i = 0; i < numOfSteps; i++)
 				{
 					Console.WriteLine(returnStepDescription(i));
 				}
+				Console.BackgroundColor = ConsoleColor.Black;
+				Console.ForegroundColor = ConsoleColor.White;
 				Console.WriteLine();
 			}
 			//(Troelsen & Japikse, 2021).
