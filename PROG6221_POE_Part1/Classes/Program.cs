@@ -17,6 +17,7 @@ namespace PROG6221_POE_Part1.Classes
 {
 	class Program
 	{
+		public string recipeName;
 
 		static void Main(string[] args)
 		{
@@ -59,14 +60,15 @@ namespace PROG6221_POE_Part1.Classes
 			createRecipe(numOfIngredients, numOfSteps, recipeName, recipe);
 
 			//Receives input from user
-			userRecipeInput(recipe);
+			userRecipeInput(recipe, recipeName);
 			//(Troelsen & Japikse, 2021).
 
 		}
 
 		//Method to ask user if they wish to create a recipe
-		public static void userRecipeInput(Recipe recipe)
+		public static void userRecipeInput(Recipe recipe,string recipeName)
 		{
+			recipeName = "";
 			Console.WriteLine("---------------------------------\n****** Recipe Application ******\n---------------------------------");
 			Console.Write("\n1)  Upscale ingredient quantity\n2)  Display recipe\n3)  Erease recipe data\n4)  Create a new recipe\n5)  Exit application\n\n---------------------------------\nChoose an option: ");
 			int choice = 0;
@@ -84,7 +86,9 @@ namespace PROG6221_POE_Part1.Classes
 					Console.Write("\nPlease enter a factor to multiply the ingredient's quantity by: ");
 					int factor = Convert.ToInt32(Console.ReadLine());
 					recipe.upscaleIngredientQuantity(factor);
-					Console.WriteLine("\nIngredient quantities have been updated, Displaying updated recipe:\n---------------------------------");
+					Console.WriteLine("\n...Ingredient quantities have been updated...");
+					Console.WriteLine("\n...Displaying Recipe...");
+					Console.WriteLine("\n---------------------------------\n---------------------------------\nRecipe: " + recipeName + "\n---------------------------------\n---------------------------------");
 					recipe.displayRecipe();
 					Console.Write("\nWould you like to reset ingredient quantities to original values? y/n: ");
 					string original = Console.ReadLine();
@@ -92,16 +96,18 @@ namespace PROG6221_POE_Part1.Classes
 					{
 						recipe.revertIngredientQuantity(factor);
 						Console.WriteLine("\n...Ingredient values have been reverted to original values...");
+						Console.WriteLine("\n...Displaying Recipe...");
+						Console.WriteLine("\n---------------------------------\n---------------------------------\nRecipe: " + recipeName + "\n---------------------------------\n---------------------------------");
 						recipe.displayRecipe();
 					}
-					userRecipeInput(recipe);
+					userRecipeInput(recipe, recipeName);
 					break;
 				//(Troelsen & Japikse, 2021).
 
 				//Display recipe
 				case 2:
 					recipe.displayRecipe();
-					userRecipeInput(recipe);
+					userRecipeInput(recipe, recipeName);
 					break;
 				//(Troelsen & Japikse, 2021).
 
@@ -119,7 +125,7 @@ namespace PROG6221_POE_Part1.Classes
 						Console.WriteLine("\nRecipe data will not be erased.");
 					}
 					
-					userRecipeInput(recipe);
+					userRecipeInput(recipe, recipeName);
 					break;
 				//(Troelsen & Japikse, 2021).
 
@@ -127,7 +133,7 @@ namespace PROG6221_POE_Part1.Classes
 				case 4:
 					//Capture recipe name
 					Console.Write("\nEnter the recipe name: ");
-					string recipeName = Console.ReadLine();
+					recipeName = Console.ReadLine();
 					//(Troelsen & Japikse, 2021).
 
 					//Captures number of ingredients
@@ -145,7 +151,7 @@ namespace PROG6221_POE_Part1.Classes
 					//(Troelsen & Japikse, 2021).
 
 					createRecipe(numOfIngredients, numOfSteps, recipeName, recipe);
-					userRecipeInput(recipe);
+					userRecipeInput(recipe, recipeName);
 					break;
 				//(Troelsen & Japikse, 2021).
 
@@ -159,7 +165,7 @@ namespace PROG6221_POE_Part1.Classes
 				//Invalid response
 				default:
 					Console.WriteLine("\n***************************\nInvalid Response!\n***************************\nPlease try again...");
-					userRecipeInput(recipe);
+					userRecipeInput(recipe, recipeName);
 					break;
 				//(Troelsen & Japikse, 2021).
 			}
@@ -177,7 +183,8 @@ namespace PROG6221_POE_Part1.Classes
 			//(Troelsen & Japikse, 2021).
 
 			//Display the recipe
-			Console.WriteLine("\nRecipe: " + recipeName + "\n---------------------------------\n---------------------------------");
+			Console.WriteLine("\n...Displaying Recipe...");
+			Console.WriteLine("\n---------------------------------\n---------------------------------\nRecipe: " + recipeName + "\n---------------------------------\n---------------------------------");
 			recipe.displayRecipe();
 			//(Troelsen & Japikse, 2021).
 
