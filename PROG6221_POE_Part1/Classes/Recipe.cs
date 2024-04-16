@@ -47,22 +47,25 @@ namespace PROG6221_POE_Part1.Classes
 			{
 				//Displays the list of ingredients
 				Console.ForegroundColor = ConsoleColor.DarkYellow;
-				Console.WriteLine("***List of Ingredients***\n");
+				Console.WriteLine("\n***List of Ingredients***\n");
 				Console.ForegroundColor = ConsoleColor.Black;
 				Console.BackgroundColor = ConsoleColor.Yellow;
+				Console.WriteLine();
 				for (int i = 0; i < numOfIngredients; i++)
 				{
 					Console.WriteLine(returnIngredient(i));
 				}
 				Console.BackgroundColor = ConsoleColor.Black;
 				Console.ForegroundColor = ConsoleColor.White;
+				Console.WriteLine();
 				//(Troelsen & Japikse, 2021).
 
 				//Displays the recipe steps
 				Console.ForegroundColor = ConsoleColor.Blue;
-				Console.WriteLine("***Recipe Steps***\n");
+				Console.WriteLine("\n***Recipe Steps***\n");
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.BackgroundColor = ConsoleColor.Blue;
+				Console.WriteLine();
 				for (int i = 0; i < numOfSteps; i++)
 				{
 					Console.WriteLine(returnStepDescription(i));
