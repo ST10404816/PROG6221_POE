@@ -22,21 +22,21 @@ namespace PROG6221_POE_Part1.Classes
 		{
 
 			//Recipe App
-			Console.WriteLine("---------------------------------\n\n****** Recipe Application ******\n\n---------------------------------\n");
+			Console.WriteLine("---------------------------------\n****** Recipe Application ******\n---------------------------------");
 			//(Troelsen & Japikse, 2021).
 
 			//Capture recipe name
-			Console.WriteLine("Enter the recipe name:");
+			Console.Write("\nEnter the recipe name: ");
 			string recipeName = Console.ReadLine();
 			//(Troelsen & Japikse, 2021).
 
 			//Captures number of ingredients
-			Console.WriteLine("Enter the number of ingredients:");
+			Console.Write("\nEnter the number of ingredients: ");
 			int numOfIngredients = Convert.ToInt32(Console.ReadLine());
 			//(Troelsen & Japikse, 2021).
 
 			//Captures number of steps of the recipe
-			Console.WriteLine("Enter the number of steps for the recipe:");
+			Console.Write("\nEnter the number of steps for the recipe: ");
 			int numOfSteps = Convert.ToInt32(Console.ReadLine());
 			//(Troelsen & Japikse, 2021).
 
@@ -55,24 +55,25 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to ask user if they wish to create a recipe
 		public static void userRecipeInput(Recipe recipe)
 		{
-			Console.WriteLine("\nChoose an option: \n1)Upscale ingredient quantity\n2)Display recipe\n3)Erease recipe data\n4)Create a new recipe\n5)Exit application\n\n---------------------------------");
+			Console.WriteLine("---------------------------------\n****** Recipe Application ******\n---------------------------------");
+			Console.Write("\n1)  Upscale ingredient quantity\n2)  Display recipe\n3)  Erease recipe data\n4)  Create a new recipe\n5)  Exit application\n\n---------------------------------nChoose an option: ");
 			int choice = Convert.ToInt32(Console.ReadLine());
 			//Number menu
 			switch (choice)
 			{
 				//Upscale ingredient quantity
 				case 1:
-					Console.WriteLine("Please enter the factor to multiply the ingredient's quantity by:");
+					Console.Write("\nPlease enter a factor to multiply the ingredient's quantity by: ");
 					int factor = Convert.ToInt32(Console.ReadLine());
 					recipe.upscaleIngredientQuantity(factor);
-					Console.WriteLine("Ingredient quantities have been updated, Displaying updated recipe:\n-----------------------------------------");
+					Console.WriteLine("\nIngredient quantities have been updated, Displaying updated recipe:\n---------------------------------");
 					recipe.displayRecipe();
-					Console.WriteLine("Would you like to reset ingredient quantities to original values?");
+					Console.Write("\nWould you like to reset ingredient quantities to original values? y/n: ");
 					string original = Console.ReadLine();
 					if (original == "y")
 					{
-						recipe.upscaleIngredientQuantity(1 / factor);
-						Console.WriteLine("Ingredient values have been reverted to original values");
+						recipe.revertIngredientQuantity(factor);
+						Console.WriteLine("\n...Ingredient values have been reverted to original values...");
 						recipe.displayRecipe();
 					}
 					userRecipeInput(recipe);
@@ -88,7 +89,18 @@ namespace PROG6221_POE_Part1.Classes
 
 				//Delete recipe
 				case 3:
-					recipe.clearRecipe();
+					Console.Write("\nAre you sure you want to erase Recipe data y/n?: ");
+					string k = Console.ReadLine();
+					if(k == "y")
+					{
+						recipe.clearRecipe();
+						Console.WriteLine("\n...Recipe data has been erased...");
+					}
+					else
+					{
+						Console.WriteLine("\nRecipe data will not be erased.");
+					}
+					
 					userRecipeInput(recipe);
 					break;
 				//(Troelsen & Japikse, 2021).
@@ -96,17 +108,17 @@ namespace PROG6221_POE_Part1.Classes
 				//New recipe
 				case 4:
 					//Capture recipe name
-					Console.WriteLine("Enter the recipe name:");
+					Console.Write("\nEnter the recipe name: ");
 					string recipeName = Console.ReadLine();
 					//(Troelsen & Japikse, 2021).
 
 					//Captures number of ingredients
-					Console.WriteLine("Enter the number of ingredients:");
+					Console.Write("\nEnter the number of ingredients: ");
 					int numOfIngredients = Convert.ToInt32(Console.ReadLine());
 					//(Troelsen & Japikse, 2021).
 
 					//Captures number of steps of the recipe
-					Console.WriteLine("Enter the number of steps for the recipe:");
+					Console.Write("\nEnter the number of steps for the recipe: ");
 					int numOfSteps = Convert.ToInt32(Console.ReadLine());
 					//(Troelsen & Japikse, 2021).
 
@@ -121,14 +133,14 @@ namespace PROG6221_POE_Part1.Classes
 
 				//Terminate recipe application
 				case 5:
-					Console.WriteLine("Application terminating...");
+					Console.WriteLine("\nApplication terminating...\n---------------------------------");
 					Environment.Exit(0);
 					break;
 				//(Troelsen & Japikse, 2021).
 
 				//Invalid response
 				default:
-					Console.WriteLine("Invalid Response!");
+					Console.WriteLine("\n***************************\nInvalid Response!\n***************************\nPlease try again...");
 					userRecipeInput(recipe);
 					break;
 				//(Troelsen & Japikse, 2021).
@@ -147,7 +159,7 @@ namespace PROG6221_POE_Part1.Classes
 			//(Troelsen & Japikse, 2021).
 
 			//Display the recipe
-			Console.WriteLine("Recipe: " + recipeName);
+			Console.WriteLine("\nRecipe: " + recipeName + "\n---------------------------------\n---------------------------------");
 			recipe.displayRecipe();
 			//(Troelsen & Japikse, 2021).
 
@@ -157,14 +169,16 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to capture ingredients
 		public static void recordIngredients(int numOfIngredients, Recipe recipe)
 		{
+			Console.WriteLine("\n\n...Recording Recipe Ingredients...");
+
 			for (int i = 0; i < numOfIngredients; i++)
 			{
 				//Captures ingredient data entered by user
-				Console.WriteLine("Enter the name of ingredient " + (i + 1) + ": ");
+				Console.Write("\nEnter the name of ingredient no. " + (i + 1) + ": ");
 				string name = Console.ReadLine();
-				Console.WriteLine("Enter the unit of measurement to be used for " + name + ": ");
+				Console.Write("\nEnter the unit of measurement for " + name + ": ");
 				string unit = Console.ReadLine();
-				Console.WriteLine("Enter the qauntity of " + name + " to be used:");
+				Console.Write("\nEnter the qauntity of " + name + " to be used: ");
 				int quantity = Convert.ToInt32(Console.ReadLine());
 				//(Troelsen & Japikse, 2021).
 
@@ -178,10 +192,12 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to capture recipe steps
 		public static void recordRecipeSteps(int numOfSteps, Recipe recipe)
 		{
+			Console.WriteLine("\n\n...Recording Recipe Steps...");
+
 			for (int i = 0; i < numOfSteps; i++)
 			{
 				//Captures recipe step data entered by user
-				Console.WriteLine("Enter the description for step " + (i + 1) + ": ");
+				Console.Write("\nEnter the description for step " + (i + 1) + ": ");
 				string description = Console.ReadLine();
 				//(Troelsen & Japikse, 2021).
 

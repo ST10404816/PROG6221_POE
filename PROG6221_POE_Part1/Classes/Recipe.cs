@@ -35,19 +35,27 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to display recipe
 		public void displayRecipe()
 		{
-			//Displays the list of ingredients
-			Console.WriteLine("List of Ingredients:");
-			for (int i = 0; i < numOfIngredients; i++)
+			if (numOfSteps == 0)
 			{
-				Console.WriteLine(returnIngredient(i));
+				Console.WriteLine("\nThere is no recipe to display.\n");
 			}
-			//(Troelsen & Japikse, 2021).
-
-			//Displays the recipe steps
-			Console.WriteLine("Recipe Steps:");
-			for (int i = 0; i < numOfSteps; i++)
+			else
 			{
-				Console.WriteLine(returnStepDescription(i));
+				//Displays the list of ingredients
+				Console.WriteLine("***List of Ingredients***\n");
+				for (int i = 0; i < numOfIngredients; i++)
+				{
+					Console.WriteLine(returnIngredient(i));
+				}
+				//(Troelsen & Japikse, 2021).
+
+				//Displays the recipe steps
+				Console.WriteLine("***Recipe Steps***\n");
+				for (int i = 0; i < numOfSteps; i++)
+				{
+					Console.WriteLine(returnStepDescription(i));
+				}
+				Console.WriteLine();
 			}
 			//(Troelsen & Japikse, 2021).
 		}
@@ -59,6 +67,16 @@ namespace PROG6221_POE_Part1.Classes
 			for (int i = 0; i < numOfIngredients; i++)
 			{
 				quantity[i] *= factor;
+			}
+		}
+		//(Troelsen & Japikse, 2021).
+
+		//Method to reverts ingredient quantity back to original value
+		public void revertIngredientQuantity(int factor)
+		{
+			for (int i = 0; i < numOfIngredients; i++)
+			{
+				quantity[i] /= factor;
 			}
 		}
 		//(Troelsen & Japikse, 2021).
@@ -75,7 +93,7 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to retrieve data of ingredients
 		public string returnIngredient(int position)
 		{
-			return (ingredientName[position] +": " + quantity[position] +" "+ measurementUnit[position] );
+			return ("o "+ingredientName[position] +": " + quantity[position] +" "+ measurementUnit[position] );
 		}
 		//(Troelsen & Japikse, 2021).
 
@@ -89,7 +107,7 @@ namespace PROG6221_POE_Part1.Classes
 		//Method to retrieve recipe steps
 		public string returnStepDescription(int position)
 		{
-			return ("Step " + position + ": " + stepDescription[position]);
+			return ("Step " + (position+1) + ": " + stepDescription[position]);
 		}
 		//(Troelsen & Japikse, 2021).
 
