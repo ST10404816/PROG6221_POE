@@ -5,7 +5,8 @@ README FILE
 This C# program is a simple command-line application designed to collect recipe data and display it. The application allows users to input the name of the recipe, the number of ingredients, and the steps involved in making the recipe. Additionally, users can choose to upscale ingredient quantities, display the recipe, erase recipe data, create a new recipe, or exit the application.
 
 Features
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Create a Recipe:
+
+Create a Recipe:
 1. Upon launching the application, users are prompted to enter the name of the recipe, the number of ingredients, and the number of steps for the recipe.
 2. Users then input details for each ingredient, including its name, unit of measurement, and quantity.
 3. Next, users provide a description for each step of the recipe.
