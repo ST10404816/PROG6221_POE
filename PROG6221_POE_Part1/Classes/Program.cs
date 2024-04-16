@@ -69,7 +69,13 @@ namespace PROG6221_POE_Part1.Classes
 		{
 			Console.WriteLine("---------------------------------\n****** Recipe Application ******\n---------------------------------");
 			Console.Write("\n1)  Upscale ingredient quantity\n2)  Display recipe\n3)  Erease recipe data\n4)  Create a new recipe\n5)  Exit application\n\n---------------------------------\nChoose an option: ");
-			int choice = Convert.ToInt32(Console.ReadLine());
+			int choice = 0;
+			string s = Console.ReadLine();
+			while ((!int.TryParse(s, out choice)) && (s != "e"))
+			{
+				Console.Write("\nPlease enter a valid number or 'e' to exit: ");
+				s = Console.ReadLine();
+			}
 			//Number menu
 			switch (choice)
 			{
