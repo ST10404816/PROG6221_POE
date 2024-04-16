@@ -17,7 +17,7 @@ namespace PROG6221_POE_Part1.Classes
 {
 	class Program
 	{
-		public string recipeName;
+		public string recipeName = " ";
 
 		static void Main(string[] args)
 		{
@@ -65,7 +65,7 @@ namespace PROG6221_POE_Part1.Classes
 
 		}
 
-		//Method to ask user if they wish to create a recipe
+		//------------------------------------------------ Menu ------------------------------------------------//
 		public static void userRecipeInput(Recipe recipe,string recipeName)
 		{
 			recipeName = "";
@@ -171,9 +171,8 @@ namespace PROG6221_POE_Part1.Classes
 			}
 
 		}
-		
 
-		//Method to create new recipe
+		//------------------------------------------------ Create New Recipe ------------------------------------------------//
 		public static void createRecipe(int numOfIngredients, int numOfSteps, string recipeName, Recipe recipe)
 		{
 		
@@ -191,7 +190,7 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to capture ingredients
+		//------------------------------------------------ Capture Recipe Ingredients------------------------------------------------//
 		public static void recordIngredients(int numOfIngredients, Recipe recipe)
 		{
 			Console.WriteLine("\n\n...Recording Recipe Ingredients...");
@@ -214,7 +213,7 @@ namespace PROG6221_POE_Part1.Classes
 		}
 		//(Troelsen & Japikse, 2021).
 
-		//Method to capture recipe steps
+		//------------------------------------------------ Capture Recipe Steps ------------------------------------------------//
 		public static void recordRecipeSteps(int numOfSteps, Recipe recipe)
 		{
 			Console.WriteLine("\n\n...Recording Recipe Steps...");
