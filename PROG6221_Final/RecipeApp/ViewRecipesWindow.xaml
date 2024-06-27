@@ -1,0 +1,78 @@
+﻿<!-- Lisha Naidoo -->
+<!-- st10404816 -->
+<!-- Group 1 -->
+
+<!-- Troelsen, A. and Japikse, P. 2021. Pro C# 9 with .NET 5: Foundational Principles and Practices in Programming. 10th ed. Berkeley: Apress. -->
+<!-- Weil, A. 2016. Learn WPF MVVM - XAML, C# and the MVVM pattern. Morrisville: Lulu Press.  -->
+<!-- Walker, A. 2024. WPF Tutorial for Beginners: How to Create Application [Example], 24 February 2024. [Online]. Available at: https://www.guru99.com/wpf-tutorial.html [Accessed 25 June 2024]. -->
+
+<Window x:Class="RecipeApp.ViewRecipesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="View Recipes" Height="800" Width="500">
+    
+    <!-- Grid background color (Troelsen & Japikse, 2021). -->
+    <Grid Margin="10" Background="Beige">
+        
+        <Grid.RowDefinitions>
+            <!-- Each RowDefinition specifies the height for a row. Auto height adjusts to fit the content (Troelsen & Japikse, 2021). -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- StackPanel for filtering by ingredient (Troelsen & Japikse, 2021). -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,10">
+            <Label Content="Filter by Ingredient" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBox Name="IngredientFilterTextBox" Width="200"/>
+            <Button Name="FilterByIngredientButton" Content="Filter" Width="100" Margin="10" Height="35" Style="{StaticResource ButtonStyle}" Click="FilterByIngredientButton_Click"/>
+        </StackPanel>
+
+        <!-- StackPanel for filtering by food group (Weil, 2016). -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,10">
+            <Label Content="Filter by Food Group" HorizontalAlignment="Center" FontSize="16"/>
+            <ComboBox Name="FoodGroupFilterComboBox" Width="200">
+                
+                <ComboBoxItem Content="Starchy Foods"/>
+                <ComboBoxItem Content="Fruits and Vegetables"/>
+                <ComboBoxItem Content="Legumes"/>
+                <ComboBoxItem Content="Proteins"/>
+                <ComboBoxItem Content="Dairy"/>
+                <ComboBoxItem Content="Fats and Oils"/>
+                <ComboBoxItem Content="Water"/>
+                
+            </ComboBox>
+            <Button Name="FilterByFoodGroupButton" Content="Filter" Width="100" Margin="10" Height="35" Style="{StaticResource ButtonStyle}" Click="FilterByFoodGroupButton_Click"/>
+        </StackPanel>
+
+        <!-- StackPanel for filtering by maximum calories  (Weil, 2016). -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,10">
+            <Label Content="Filter by Max Calories" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBox Name="MaxCaloriesFilterTextBox" Width="200"/>
+            <Button Name="FilterByMaxCaloriesButton" Content="Filter" Width="100" Margin="10" Height="35" Style="{StaticResource ButtonStyle}" Click="FilterByMaxCaloriesButton_Click"/>
+        </StackPanel>
+
+        <!-- ListBox to display the list of recipes (Weil, 2016). -->
+        <ListBox Name="RecipesListBox" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" SelectionChanged="RecipesListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <!-- Displays each recipe name in a TextBlock (Walker, 2024). -->
+                    <TextBlock Text="{Binding Name}" FontSize="16" Margin="5"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Refresh Button (Walker, 2024). -->
+        <Button Name="RefreshButton" Grid.Row="4" Grid.Column="0" Content="Refresh List" Width="200" Height="50" Margin="10" Style="{StaticResource ButtonStyle}" Click="RefreshButton_Click"/>
+
+        <!-- Back Button (Walker, 2024).-->
+        <Button Name="BackButton" Grid.Row="5" Grid.Column="0" Content="Back" Width="200" Height="50" Margin="10" Style="{StaticResource ButtonStyle}" Click="BackButton_Click"/>
+
+    </Grid>
+</Window>
